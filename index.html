@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Supply Registration Form </title>
+    <link rel = "stylesheet" href ="style.css">
+</head>
+<body>
+    <h1> Supplementary Registration Form </h1>
+    <marquee behavior="" direction="right"><i><b>Register Now</b></i></marquee>
+    <form name='registration'>
+     <ul>
+       <label for="name">Full Name:</label> <span class="name">*</span>
+       <input type="text"  name="candidatename" required>
+       <br><br>
+       <label for="number">Register number:</label><span class="number1">*</span> 
+       <input type="text" name="candidatenumber" required>
+       <br><br>
+       <label for="number">Roll number:</label> <span class="number2">*</span>
+       <input type="text" name="candidaterollnumber" required>
+       <br><br>
+       <label for="branch">Branch:</label> <span class="branch1">*</span>
+       <input type="text" name="candidatebranch" required>
+       <br><br>
+       <label for="date">DOB:</label> 
+       <input type="date" name="candidatedate"/>
+       <br><br>
+       <label for="number">Phone Number:</label> 
+       <input type="tel"  name="candidatephonenumber" pattern="[0-9]{10}" title="Please enter a 10-digit phone number (numbers only)">
+       <br><br>
+       <label id="gender">Gender:</label></li>
+       <input type="radio" name="gender" value="Male"/><span>Male</span>
+       <input type="radio" name="gender" value="Female"/><span>Female</span>
+       <br><br>
+       <label for="select">Semester Name:</label>
+    <select id="sem">
+       <option value="nothing">--Select Semester--</option>
+       <option value="first">S1</option>
+       <option value="second">S2</option>
+       <option value="third">S3</option>
+       <option value="fourth">S4</option>
+       <option value="fifth">S5</option>
+       <option value="sixth">S6</option>
+       <option value="seventh">S7</option>
+       <option value="eighth">S8</option>
+    </select>
+       <br><br>
+       <label for="select">Subject:</label>
+    <select id="subject">
+        <option value="nothing">--Select Semester--</option>
+    <optgroup label="S1"><option value="first">Calculus</option>
+        <option value="second">Engineering Physics</option>
+        <option value="second">Engineering Mechanics</option>
+        <option value="second">Engineering Chemistry</option>
+    </optgroup>
+    <optgroup label="S2"><option value="second">Digital system design</option>
+        <option value="second">Data structure</option>
+        <option value="second">Business Economics</option>
+        <option value="second">Digital circuit</option>
+    </optgroup>
+    <optgroup label="S3"><option value="third">LACA</option>
+        <option value="third">Nano-Technology</option>
+        <option value="third">Economics</option>
+        <option value="third">Digital Electronics</option>
+    </optgroup>
+    <optgroup label="S4"><option value="fourth">Nuclear Engineering</option>
+        <option value="fourth">Computer programming</option>
+        <option value="fourth">Life skills</option>
+        <option value="fourth">Mechanical workshop</option>
+    </optgroup>
+    <optgroup label="S5"><option value="fifth">industrial Engineering </option>
+        <option value="fifth">Computer programming</option>
+        <option value="fifth">AET</option>
+        <option value="fifth">Power Electronics</option>
+    </optgroup>
+    <optgroup label="S6"><option value="sixth">Mechatronics</option>
+        <option value="sixth">Food Tehnology</option>
+        <option value="sixth">Life skills</option>
+        <option value="sixth">Mechanical workshop</option>
+    </optgroup>
+    <optgroup label="S7"><option value="seventh">Automobile Engineering</option>
+       <option value="seventh">Computer programming</option>
+       <option value="seventh">Life skills</option>
+       <option value="seventh">Metallurgy</option>
+       </optgroup>
+    <optgroup label="S8"><option value="eighth">VLSI</option>
+       <option value="eighth">Biomedical Engineering</option>
+       <option value="eighth">Robotics</option>
+       <option value="eighth">Fire and Safety</option>
+    </optgroup>
+
+    </select>
+    </ul>
+     <h3>Self Declaration</h3>
+      <input type="checkbox" id="selfDeclaration" name="selfDeclaration" required>
+       <label for="selfDeclaration">I affirm that all the information given above is True</label><span class="declaration">*</span>
+       <br><br>
+       <input type="submit" name="submit" value="Submit"/>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
