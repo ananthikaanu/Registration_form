@@ -45,7 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
+
+//document.addEventListener("DOMContentLoaded", function () {
 
   // Retrieve data using GET request
   const retrieveButton = document.getElementById("retrieveData");

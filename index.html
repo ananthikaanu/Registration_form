@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Supply Registration Form </title>
-    <link rel = "stylesheet" href ="style.css">
+    <!-- <link rel = "stylesheet" href ="style.css">  -->
 </head>
 <body>
     <h1> Supplementary Registration Form </h1>
-    <marquee behavior="" direction="right"><i><b>Register Now</b></i></marquee>
-    <form name='registration'>
+    <!-- <marquee behavior="" direction="right"><i><b>Register Now</b></i></marquee> -->
+    <form name='myform'>
      <ul>
        <label for="name">Full Name:</label> <span class="name">*</span>
        <input type="text"  name="candidatename" required>
@@ -95,13 +95,54 @@
       <input type="checkbox" id="selfDeclaration" name="selfDeclaration" required>
        <label for="selfDeclaration">I affirm that all the information given above is True</label><span class="declaration">*</span>
        <br><br>
-       <input type="submit" name="submit" value="Submit"/>
-       <button id="retrieveData">Retrieve Data</button>
-       <div id="submittedDataSection">
-        <h2>Submitted Data</h2>
-        <pre id="submittedData"></pre>
+       <button type="submit" value="submit" required>Submit</button>
+       </form>
+       <button id="viewButton">Retrieve Data</button>
+       <div id="viewData">
     </div>
-    </form>
-    <script src="script.js"></script>
-</body>
+    </body>
+    <script>
+        let userID;
+       const form = document.myform;
+       let value = document.getElementById("viewData");
+       document.addEventListener("DOMContentLoaded", function () {
+       const form = document.querySelector("form")
+});
+      form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      let formData = new FormData(this);
+      let formDataObject = {};
+      formData.forEach((value, key) => {
+      formDataObject[key] = value;
+});
+    let json = JSON.stringify(formDataObject)
+    fetch("http://localhost:3000/submit", {
+    method: "POST",
+    body: json,
+        headers: {
+  "Content-Type": "application/json"
+ }
+})
+    .then(response => response.json())
+    .then(data => {
+    console.log("Response Data:", data);
+    userID = data.id
+ })
+   .catch(error => {
+  console.error("Error:", error);
+ });
+});
+   viewButton = document.getElementById("viewButton")
+   viewButton.addEventListener("click", function (event) {
+   event.preventDefault();
+      fetch(`http://localhost:3000/data?id=${userID}`)
+      .then(response => response.json())
+      .then(data => {
+      value.textContent = JSON.stringify(data, null, 2);
+     })
+     .catch(error => {
+    console.error("Error:", error);
+    });
+  });
+</script>
 </html>
